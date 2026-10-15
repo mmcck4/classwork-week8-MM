@@ -9,7 +9,9 @@ function yourGradeTests(grade: GradesFunction) {
     // correct versions are correct, and the incorrect versions are incorrect.
     //
     //
-    // Delete this comment, and add your tests here.
+    expect(grade("")).toBe(0);
+    expect(grade("90, 100, 90")).toBe(95);
+    expect(grade("90, 100, 80")).toBe(90);
     //
     /********************* DO NOT MODIFY AFTER THIS LINE *************/
 }
@@ -17,7 +19,8 @@ function yourGradeTests(grade: GradesFunction) {
 describe("Grades", () => {
     test.each(grade)("Proving %p is correct", yourGradeTests);
     // Do not remove this line, even if the system tells you to do so.
-    test.failing.each(gradeIncorrect)( // <-- Do not change this line!
+    test.failing.each(gradeIncorrect)(
+        // <-- Do not change this line!
         "Proving %p is incorrect",
         yourGradeTests,
     );
